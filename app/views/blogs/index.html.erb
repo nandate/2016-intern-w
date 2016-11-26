@@ -1,0 +1,12 @@
+<h1>Mini blog</h1>
+
+<%=render 'form' %>
+
+<% @blogs.each do |blog| %>
+  <h2>
+    <%=blog.id %>:
+    <%=link_to blog.body,blog_path %>
+  </h2>
+  <%=blog.like %>
+  <%=blog.created_at %>
+<%end %>
