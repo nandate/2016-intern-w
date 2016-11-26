@@ -3,10 +3,13 @@
 <%=render 'form' %>
 
 <% @blogs.each do |blog| %>
-  <h2>
+  <h3>
     <%=blog.id %>:
-    <%=link_to blog.body,blog_path %>
-  </h2>
-  <%=blog.like %>
-  <%=blog.created_at %>
+    <%=link_to blog.body,blog%>
+  </h3>
+  <p>
+    いいね:<%=blog.like %>
+    コメント数:
+    投稿日時:<%=blog.created_at %>
+  </p>
 <%end %>

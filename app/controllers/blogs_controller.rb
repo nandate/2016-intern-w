@@ -15,7 +15,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog=Blog.new(blog_params)
-    if @blog.sace
+    if @blog.save
       redirect_to root_url
     else
       render 'new'

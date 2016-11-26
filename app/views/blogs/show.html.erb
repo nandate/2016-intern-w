@@ -1,0 +1,22 @@
+<h1>Mini blog</h1>
+<%=link_to "戻る",blogs_path %>
+<p>
+  <%=@blog.id %>:
+  投稿日時:<%=@blog.created_at %>
+  いいね:<%=@blog.like %>
+</p>
+
+<h4>
+  <%=@blog.body %>
+</h4>
+
+<%=form_for([@blog,@blog.replies.build]) do |f| %>
+  <%=f.text_field :comment,placeholder:"コメントしよう" %>
+  <%=f.submit "コメントする" %>
+<% end %>
+
+<% @blog.replies.each do |reply| %>
+  <h4><%=reply.comment %> |
+    投稿日時:<%=reply.created_at %>
+  </h4>
+<% end %>
