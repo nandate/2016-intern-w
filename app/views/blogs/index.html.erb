@@ -8,9 +8,11 @@
     <%=link_to blog.body,blog%>
   </h3>
   <p>
-      <%=link_to 'いいね:',blogs_like_path(blog_id: blog.id),remote:true %>
-      <div id="like-count-<%=blog.id%>"><%=blog.like %></div>
-    コメント数:<%=blog.replies.count %>
+    <%=link_to 'いいね:',blogs_like_path(blog_id: blog.id),remote:true %>
+    <span id="like-count-<%=blog.id%>">
+      <%=blog.like %> ｜
+    </span>
+    コメント数:<%=blog.replies.count %> ｜
     投稿日時:<%=blog.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
   </p>
 <%end %>

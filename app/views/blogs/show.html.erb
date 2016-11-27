@@ -2,8 +2,11 @@
 <%=link_to "戻る",blogs_path %>
 <p>
   <%=@blog.id %>:
-  投稿日時:<%=@blog.created_at %>
-  いいね:<%=@blog.like %>
+  投稿日時:<%=@blog.created_at %> ｜
+  <%=link_to 'いいね:',blogs_like_path(blog_id: @blog.id),remote:true %>
+  <span id="like-count-<%=@blog.id%>">
+    <%=@blog.like %> ｜
+  </span>
 </p>
 
 <h4>
@@ -16,7 +19,8 @@
 <% end %>
 
 <% @blog.replies.each do |reply| %>
-  <p><%=reply.comment %> |
-    投稿日時:<%=reply.created_at%>
+  <p>
+    <%=reply.comment %>
+    <%=reply.created_at.try(:strftime,'%Y/%m/%d %H:%M:%S')%>
   </p>
 <% end %>
