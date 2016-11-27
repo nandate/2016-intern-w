@@ -16,7 +16,7 @@
 <% end %>
 
 <% @blog.replies.each do |reply| %>
-  <h4><%=reply.comment %> |
-    投稿日時:<%=reply.created_at %>
-  </h4>
+  <p><%=reply.comment %> |
+    投稿日時:<%=reply.created_at%>
+  </p>
 <% end %>

@@ -12,8 +12,6 @@ class RepliesController < ApplicationController
     @reply=@blog.replies.create(reply_params)
     if @reply.save
       redirect_to @blog
-    else
-      render 'new'
     end
   end
 

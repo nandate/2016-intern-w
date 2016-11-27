@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'blogs#index'
 
+  get 'blogs/like'
   resources :blogs do
     resources :replies
   end

@@ -17,9 +17,13 @@ class BlogsController < ApplicationController
     @blog=Blog.new(blog_params)
     if @blog.save
       redirect_to root_url
-    else
-      render 'new'
     end
+  end
+
+  def like
+    @blog=Blog.find(params[:blog_id])
+    @blog.like+=1
+    @blog.save
   end
 
   private
